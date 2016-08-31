@@ -1,0 +1,67 @@
+<div>
+    <h2>Clusters</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <div class="table-responsive">
+                    <table class="table table-condensed table-striped table-hover">
+                        <thead>
+                        <tr>
+                          <th>Type</th>
+                          <th>Host</th>
+                          <th>Name</th>
+                          <th>Status</th>
+                          <th>Cluster Created</th>
+                          <th>Action</th>
+                          <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="cluster in clusters">
+                            <td>LXC</td>
+                            <td>192.168.1.128</td>
+                            <td>{{cluster.metadata.name}}</td>
+                            <td>{{cluster.metadata.status}}</td>
+                            <td>{{cluster.metadata.created_at}}</td>
+                            <td ng-if="cluster.metadata.status.indexOf('S') == 0">
+                                <button type="button" class="btn btn-success" ng-click="startCluster(cluster.metadata.name)">
+                                  Start
+                                </button>
+                            </td>
+                            <td ng-if="cluster.metadata.status.indexOf('R') == 0">
+                                <a ui-sref="clusters" ui-sref-opts="{reload: true}"><button type="button" class="btn btn-danger" ng-click="stopCluster(cluster.metadata.name)">
+                                  Stop
+                                </button></a>
+                                <button type="button" class="btn btn-success" ng-click="showTerminal(cluster.metadata.name)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                  Terminal
+                                </button>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">More<span
+                                            class="caret"></span></button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li></li>
+                                        <li><a ng-click='showClusterDetails(cluster)'>Details</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li ng-if="container.status.indexOf('Exit') !== -1"><a
+                                                ng-click='deleteContainer(container)'>Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div id="console"></div>
+    </div>
+  </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

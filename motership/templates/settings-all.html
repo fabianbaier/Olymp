@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+    	<div class="col-md-3">
+            <div class="list-group" id="sidebar">
+            	<a href="#settings#APISettings" class="list-group-item">API Settings</a>
+ 				<a href="#settings#Certificates" class="list-group-item">Certificates</a>
+ 				<a href="#" class="list-group-item">Diagnostics</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+          <h3><a name="APISettings">API Settings</a></h3>
+          <p>All of the information for organizing data into projects, and groups.</p>
+          <table class="table table-inverse table-condensed table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Api Status</td>
+                <td><button type="button" class="btn btn-success disabled">
+                    {{containers[0]['container-rawdata']['metadata']['api_status']}}
+                </button></td>
+              </tr>
+              <tr>
+                <td>Api Version</td>
+                <td><button type="button" class="btn btn-success disabled">
+                    {{containers[0]['container-rawdata']['metadata']['api_version']}}
+                </button></td>
+              </tr>
+              <tr>
+                <td>Auth</td>
+                <td><button ng-if="containers[0]['container-rawdata']['metadata']['auth'] == 'untrusted'" type="button" class="btn btn-danger" ng-click="loadAuthenticate()">
+                    {{containers[0]['container-rawdata']['metadata']['auth']}}
+                </button>
+                <button ng-if="containers[0]['container-rawdata']['metadata']['auth'] == 'trusted'" type="button" class="btn btn-success" ng-click="loadAuthenticate()">
+                    {{containers[0]['container-rawdata']['metadata']['auth']}}
+                </button></td>
+              </tr>
+              <tr>
+                <td>Public</td>
+                <td><button type="button" class="btn btn-danger disabled">
+                    {{containers[0]['container-rawdata']['metadata']['public']}}
+                </button></td>
+              </tr>
+            </tbody>
+          </table>
+          <hr class="col-md-12">
+
+          <h3><a name="Certificates">Certificates</a></h3>
+          <p>All of the settings for time zone and daylight savings.
+            <table class="table table-inverse table-condensed table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Fingerprint</th>
+                  <th>Value</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="certificate in certificates[0]['certificates-rawdata']['metadata']">
+                  <td>{{certificate}}</td>
+                  <td><button type="button" class="btn btn-success" ng-click="showModal(certificate)">
+                      See Value
+                  </button></td>
+                  <td><button type="button" class="btn btn-danger">
+                      Remove
+                  </button></td>
+                </tr>
+              </tbody>
+            </table>
+          </p><hr class="col-md-12">
+
+          <h3>Diagnostics</h3>
+          <p>Run various diagnostics.</p>
+           <button class="btn" contenteditable="false">Run Network Diagnostic</button>
+        </div>
+        <div class="span9"></div>
+    </div>
+</div>

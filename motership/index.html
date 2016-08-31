@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Docker Webinterface</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/loading-bar.css">
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+    <script src="lib/loading-bar.js"></script>
+    <script src="lib/angular-strap.js"></script>
+    <script src="lib/angular-strap.tpl.js"></script>
+</head>
+<body ng-app="motership">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse"
+                    class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">Olycloud</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#clusters">Clusters</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#terminal">Terminal</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div role="main" class="container theme-showcase">
+    <div class="" style="margin-top:90px;">
+        <div ui-view></div>
+    </div>
+</div>
+<script src="lib/term.js"></script>
+<script src="app/app.js"></script>
+</body>
+</html>

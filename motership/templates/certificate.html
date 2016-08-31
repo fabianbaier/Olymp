@@ -1,0 +1,25 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" ng-show="title">
+        <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ng-bind="title">Certificate</h4>
+      </div>
+      <div class="modal-body">
+        <h6 class="modal-body">Certificate</h6>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <div class="col-sm-5">
+              <textarea rows="15" cols="70" wrap="hard">
+                  {{certificate}}
+              </textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

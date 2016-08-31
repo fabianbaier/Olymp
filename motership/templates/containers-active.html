@@ -1,0 +1,40 @@
+<div>
+    <h2>Running</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Container Image</th>
+                            <th>Container Command</th>
+                            <th>Container Created</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="container in containers">
+                            <td>{{container.type}}</td>
+                            <td>{{container.status}}</td>
+                            <td>{{container.status_code}}</td>
+                            <td>{{container.metadata}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" ng-click="editContainer(container)">Edit
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" ng-click="stopContainer(container.id)">
+                                    Stop
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
